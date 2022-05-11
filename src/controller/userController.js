@@ -3,35 +3,31 @@ const jwt=require("jsonwebtoken")
 const userModel=require("../models/userModel")
 
 
-      //EMAIL VALIDATION BY REJEX
-      const validateEmail = (email) => {
-        return String(email)
-          .toLowerCase()
-          .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          );
+  //EMAIL VALIDATION BY REJEX
+   const validateEmail = (email) => {
+   return String(email)
+    .toLowerCase()
+    .match(
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+       );
       };
 const createUser = async (req, res) => {
     try {
   
-  
-      //PASSWORD VALIDATION BY REJEX
-      const validatePassword = (password) => {
-        return String(password).match(
-            /^(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,15}$)/
-  
-        );
+//PASSWORD VALIDATION BY REJEX
+    const validatePassword = (password) => {
+    return String(password).match(
+         /^(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,15}$)/
+   );
       };
   
-      //STRING VALIDATION BY REJEX
-      const validatefeild= (shivam) => {
-       return String(shivam).match(
-           /^[a-zA-Z]/);
+ //STRING VALIDATION BY REJEX
+    const validatefeild= (shivam) => {
+     return String(shivam).match(
+         /^[a-zA-Z]/);
       };
   
-  
-  
-      //VALIDATION OF MOBILE NO BY REJEX
+ //VALIDATION OF MOBILE NO BY REJEX
   const validateNumber = (Feild) => {
       return String(Feild).match(
         /^(?:(?:\+|0{0,2})91(\s*|[\-])?|[0]?)?([6789]\d{2}([ -]?)\d{3}([ -]?)\d{4})$/);
@@ -129,6 +125,9 @@ const createUser = async (req, res) => {
       }
     }
 
+/************************************************************************************************************************** */
+
+
 const login=async function(req,res){
     const email=req.body.email
     const password=req.body.password
@@ -152,10 +151,12 @@ const login=async function(req,res){
     }
     const token = jwt.sign({
         userId: result._id
-    }, "Project 3",{expiresIn:"2m"});
+    }, "Project 3",{expiresIn:"10m"});
     res.setHeader("x-api-key", token);
     res.status(200).send({ status: true, data: "logged in successfully",data:token })
 }
+
+
 
 module.exports.createUser=createUser
 module.exports.login=login
