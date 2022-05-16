@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const bookModels = require("./booksModel");
 const ObjectId = mongoose.Schema.Types.ObjectId;
-
+const moment = require('moment')
 
 const reviewSchema = new mongoose.Schema({
 
@@ -15,12 +15,13 @@ const reviewSchema = new mongoose.Schema({
               default: "Guest" },
 
     reviewedAt: { type: Date, 
-             required: true },
+             default:moment(Date.now()),
+             required :true },
              
     rating: { type: Number, min: 1, max :5,
              required: true },
 
-    review: { type: String, },
+    review: { type: String },
 
     isDeleted: { type: Boolean, 
               default: false },

@@ -8,7 +8,7 @@ const userModel=require("../models/userModel")
    return String(email)
     .toLowerCase()
     .match(
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
        );
       };
 const createUser = async (req, res) => {
@@ -151,7 +151,7 @@ const login=async function(req,res){
     }
     const token = jwt.sign({
         userId: result._id
-    }, "Project 3",{expiresIn:"10m"});
+    }, "Project 3",{expiresIn:"2h"});
     res.setHeader("x-api-key", token);
     res.status(200).send({ status: true, data: "logged in successfully",data:token })
 }

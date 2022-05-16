@@ -34,7 +34,8 @@ isDeleted: {type: Boolean,
             default: false
             },
 
-deletedAt: {type : String, default : ""},
+deletedAt: {type: String, 
+            },
 
 reviews: {type:Number, 
     default: 0, 
