@@ -234,7 +234,7 @@ const createReview = async function (req, res) {
             
             let savedData = await reviewModel.create(data)
              newReview.reviewData = savedData
-            return res.status(201).send({ status: true, data: newReview })
+            return res.status(201).send({ status: true, data: savedData })
         }
     }
     catch (err) {
@@ -348,7 +348,7 @@ const deleteReview = async (req, res) => {
   
 
 
-module.exports.createBook = createBook
+ module.exports.createBook = createBook
  module.exports.getBooks = getBooks
  module.exports.getBooksById = getBooksById
  module.exports.updateBooksById = updateBooksById
