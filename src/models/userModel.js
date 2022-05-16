@@ -8,7 +8,7 @@ const userSchema=new mongoose.Schema({
                trim:true},
 
         name: {type:String, 
-              required:true,
+              required:true,        
               trim:true},
 
         phone: {type:String,
