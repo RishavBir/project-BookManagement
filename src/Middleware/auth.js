@@ -12,13 +12,13 @@ const authEntication = async function (req, res, next) {
         jwt.verify(token, "Project 3");
         next()
     }
-    catch (error) {
 
+    catch (error) {
         return res.status(407).send({status:false, msg: error.message })
     }
-
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 
 const authorIsation = async function (req, res, next) {
