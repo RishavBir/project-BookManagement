@@ -17,4 +17,6 @@ mongoose.connect('mongodb+srv://prince_chouhan9340:VmEz2U6wR9QeMWxw@cluster0.7ob
 app.use("/", route)
 // www.domianName.com/
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000, function () {
+    console.log('Express app running on port' + (process.env.PORT || 3000))
+});
